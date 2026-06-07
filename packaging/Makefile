@@ -5,6 +5,8 @@ ROOT_DIR = ..
 
 .IGNORE:
 
+all: composition
+
 files\default.chm : ..\help\en-us\contents\* files\utils\SAVEreg.bat
 	cd ..\help\en-us
 	hhc help_en.hhp
@@ -110,4 +112,4 @@ clean:
 	del /q files\utils\RESTOREreg.bat
 	del Output\*.zip
 
-all: composition
+
