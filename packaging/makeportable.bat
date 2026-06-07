@@ -5,10 +5,13 @@ REM Copy portable version of noMeiryoUI.exe into files directory.
 REM run batchfile
 
 nmake clean
+del /S /Q portable
+mkdir portable
 del /Q .\Output\noMeiryoUI.zip
-REM Please choice virus checker safe execute file.
-copy /y ..\program\bin_2012\Release_Portable\noMeiryoUI.exe files
 nmake all
-cd files
+xcopy /Y /S /E files\* portable
+REM Please choice virus checker safe execute file.
+copy /y ..\program\bin_2012\Release_Portable\noMeiryoUI.exe portable
+cd portable
 7z a -mx9 ..\Output\noMeiryoUI.zip @filelist.txt
 cd ..
